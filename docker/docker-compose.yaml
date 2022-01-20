@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  tracker-db:
+    image: postgres:14.1-alpine
+    container_name: tracker-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
