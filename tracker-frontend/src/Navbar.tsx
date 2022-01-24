@@ -12,7 +12,11 @@ type NavbarProps = {
   onSelect: (key: string) => void | Promise<void>;
 };
 
-export const Navbar: React.FC<NavbarProps> = ({ items, selected, onSelect }) => (
+export const Navbar: React.FC<NavbarProps> = ({
+  items,
+  selected,
+  onSelect,
+}) => (
   <Box
     orientation="vertical"
     borderRight="2px solid"
@@ -27,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ items, selected, onSelect }) => 
           }}
           w="100%"
           h="60px"
-          aria-label="Home"
+          aria-label={key}
           borderRadius="0"
           _hover={{ bgColor: "#283152" }}
           _active={{ bgColor: "#37416D" }}
