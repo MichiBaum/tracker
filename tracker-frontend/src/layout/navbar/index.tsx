@@ -12,7 +12,7 @@ type NavbarProps = {
   onSelect: (key: string) => void | Promise<void>;
 };
 
-export const Navbar: React.FC<NavbarProps> = ({
+const Navbar: React.FC<NavbarProps> = ({
   items,
   selected,
   onSelect,
@@ -22,10 +22,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     borderRight="2px solid"
     borderRightColor="whiteAlpha.400"
     my="4"
+    h="100%"
   >
     <VStack mt="2" spacing="3">
       {items.map(({ key, icon }) => (
         <IconButton
+          key={key}
           onClick={() => {
             onSelect(key);
           }}
@@ -57,3 +59,5 @@ export const Navbar: React.FC<NavbarProps> = ({
     </VStack>
   </Box>
 );
+
+export default Navbar;

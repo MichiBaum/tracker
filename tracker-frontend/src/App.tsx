@@ -1,7 +1,7 @@
 import { Box, chakra, Grid, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaClipboardCheck, FaHome } from "react-icons/fa";
-import { Navbar } from "./Navbar";
+import Navbar from "./layout/navbar";
 
 const Home = chakra(FaHome);
 const ClipboardCheck = chakra(FaClipboardCheck);
