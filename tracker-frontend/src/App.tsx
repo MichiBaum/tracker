@@ -1,7 +1,8 @@
-import { Box, chakra, Grid, Text } from "@chakra-ui/react";
+import { Box, chakra, Grid, Text, Theme, useTheme } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaClipboardCheck, FaHome } from "react-icons/fa";
 import Navbar from "./layout/navbar";
+import { useBackgroundGradient } from "./theme/background";
 
 const Home = chakra(FaHome);
 const ClipboardCheck = chakra(FaClipboardCheck);
@@ -9,12 +10,14 @@ const ClipboardCheck = chakra(FaClipboardCheck);
 function App() {
   const [selected, setSelected] = useState("home");
 
+  const bgGradient = useBackgroundGradient("br");
+
   return (
     <Grid
       templateColumns="80px 1fr"
       h="100vh"
       w="100vw"
-      bg="linear-gradient(115deg, #1A2136 0%, #161C2C 100%)"
+      bg={bgGradient}
     >
       <Navbar
         onSelect={setSelected}
