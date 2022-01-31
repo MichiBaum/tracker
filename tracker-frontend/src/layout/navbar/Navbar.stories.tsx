@@ -1,4 +1,4 @@
-import { Box, chakra, Flex } from "@chakra-ui/react";
+import { chakra, Flex } from "@chakra-ui/react";
 import { useState } from "@storybook/addons";
 import { ComponentMeta } from "@storybook/react";
 import { FaClipboardCheck, FaHome } from "react-icons/fa";
