@@ -11,3 +11,39 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
+    depends_on:
+      - keycloak
+
+  keycloak:
+    image: jboss/keycloak:16.1.1
+    container_name: keycloak
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: plzChangeMeLul
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: somePWtoChange
+    depends_on:
+      - keycloak-db
+  
+  keycloak-db:
+    image: mysql:5.7
+    container_name: keycloak-db
+    volumes:
+      - keycloak_db_data:/var/lib/mysql
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: plzChangeMeLul
+
+volumes:
+  keycloak_db_data:
+      driver: local
